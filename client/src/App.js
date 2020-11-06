@@ -1,37 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useEffect, useState } from 'react';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./components/home/index";
+import Submit from "./components/submit/index";
 
 function App() {
-  const [apiResponse, setApiRespone] = useState({apiResponse: ''});
+  const [apiResponse, setApiRespone] = useState({ apiResponse: "" });
 
   useEffect(() => {
     async function callAPI() {
-      const res = await fetch('http://localhost:9000/testAPI');
+      const res = await fetch("http://localhost:9000/testAPI");
       const data = await res.text();
-      console.log(data)
+      console.log(data);
       setApiRespone({ apiResponse: data });
-    } 
+    }
     callAPI();
-  
   }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <p className="App-intro">{apiResponse.apiResponse}</p>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/submit">Submit A Stain</Link>
+              </li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/submit">
+              <Submit apiResponse={apiResponse.apiResponse} />
+            </Route>
+            <Route path="/">
+              <Home apiResponse={apiResponse.apiResponse} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
