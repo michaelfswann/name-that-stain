@@ -12,7 +12,7 @@ function View({ apiResponse }) {
         <img
           src={object.stain_image}
           width="200px"
-          height="300px"
+          height="250px"
           alt="stain"
         ></img>
       </li>
@@ -21,7 +21,7 @@ function View({ apiResponse }) {
 
   return (
     <div>
-      <ul>{createStainList(apiResponse)}</ul>
+      <ul>{apiResponse.map(createStainList)}</ul>
     </div>
   );
 }

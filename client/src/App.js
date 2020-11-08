@@ -40,13 +40,13 @@ function App() {
               renders the first one that matches the current URL. */}
           <Switch>
             <Route path="/view">
-              <View apiResponse={apiResponse[0]} />
+              <View apiResponse={apiResponse} />
             </Route>
             <Route path="/submit">
-              <Submit apiResponse={apiResponse.apiResponse} />
+              <Submit apiResponse={apiResponse} />
             </Route>
             <Route path="/">
-              <Home apiResponse={apiResponse.apiResponse} />
+              <Home apiResponse={apiResponse} />
             </Route>
           </Switch>
         </div>

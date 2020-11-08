@@ -11,7 +11,7 @@ async function getAllStains() {
 async function addStain(stain) {
   const res = await query(
     "INSERT INTO stain_table (stain_name, stain_type, stain_image, stain_color) VALUES ($1, $2, $3, $4) RETURNING stain_name;",
-    [stain.name, stain.type, stain.image, stain.color]
+    [stain.stain_name, stain.stain_type, stain.stain_image, stain.stain_color]
   );
   console.log(`added new stain: ${res.rows[0].stain_name}`);
   return res.rows[0].stain_name;
