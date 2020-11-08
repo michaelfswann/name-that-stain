@@ -3,16 +3,17 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/home/index";
 import Submit from "./components/submit/index";
+import View from "./components/see-a-stain";
 
 function App() {
-  const [apiResponse, setApiRespone] = useState({ apiResponse: "" });
+  const [apiResponse, setApiResponse] = useState([]);
 
   useEffect(() => {
     async function callAPI() {
       const res = await fetch("http://localhost:9000/stain/stain");
-      const data = await res.text();
+      const data = await res.json();
       console.log(data);
-      setApiRespone({ apiResponse: data });
+      setApiResponse(data);
     }
     callAPI();
   }, []);
@@ -30,7 +31,7 @@ function App() {
                 <Link to="/submit">Submit A Stain</Link>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+                <Link to="/view">See A Stain</Link>
               </li>
             </ul>
           </nav>
@@ -38,6 +39,9 @@ function App() {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
+            <Route path="/view">
+              <View apiResponse={apiResponse[0]} />
+            </Route>
             <Route path="/submit">
               <Submit apiResponse={apiResponse.apiResponse} />
             </Route>

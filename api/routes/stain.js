@@ -12,8 +12,7 @@ router.get("/stain", async function (req, res, next) {
   console.log("reached line 14");
   let data = await getAllStains();
   console.log("reached line 16");
-  console.log(data[0]);
-  res.send("some text for react");
+  res.send(data);
 });
 
 router.post("/stain", async function (req, res) {

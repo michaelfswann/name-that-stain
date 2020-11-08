@@ -3,6 +3,7 @@ import logo from "../../logo.svg";
 // import '../../App.css';
 
 function Submit({ apiResponse }) {
+  console.log(apiResponse);
   //console.log("6: " + apiResponse);
   return (
     <div>
