@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     async function callAPI() {
-      const res = await fetch("http://localhost:9000/testAPI");
+      const res = await fetch("http://localhost:9000/stain");
       const data = await res.text();
       console.log(data);
       setApiRespone({ apiResponse: data });
