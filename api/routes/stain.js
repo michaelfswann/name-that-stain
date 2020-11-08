@@ -3,21 +3,18 @@ var router = express.Router();
 
 const { getAllStains, addStain } = require("../db/models/index");
 
-const asyncMiddleware = (fn) => (req, res, next) => {
-  Promise.resolve(fn(req, res, next)).catch(next);
-};
+// const asyncMiddleware = (fn) => (req, res, next) => {
+//   Promise.resolve(fn(req, res, next)).catch(next);
+// };
 
 /* GET a stain. */
-router.get(
-  "/stain",
-  asyncMiddleware(async function (req, res, next) {
-    console.log("hi");
-    const data = await getAllStains();
-    console.log("hii");
-    data = data.json();
-    res.send("big hello");
-  })
-);
+router.get("/stain", async function (req, res, next) {
+  console.log("reached line 14");
+  let data = await getAllStains();
+  console.log("reached line 16");
+  console.log(data[0]);
+  res.send("some text for react");
+});
 
 router.post("/stain", async function (req, res) {
   const data = req.body;
