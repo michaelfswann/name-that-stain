@@ -1,7 +1,14 @@
-Setup database and connection with express and heroku store images urls as strings also need stain type
+# Name That Stain!
 
-npx express generator
+Sing to the tune of stop that train :musical_note::steam_locomotive:
 
-npx create react app
+Name that stame is a mutliple choice game where, you guessed it, you have to name that stain!
 
-react router
+Under construction but currently on hold while I finsih SoC Bootcamp. 
+
+### There is a a lot more to do
+- Fetch requests from front end need finishing.
+- Game element not built yet: currently just displays stains
+- Styling is lacking
+- Currently using PostgreSQL need more stain entries, wanted to experiment with learning a new database too.
+- Create seperate repos for client and server.
