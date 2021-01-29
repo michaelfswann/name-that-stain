@@ -4,7 +4,7 @@ Sing to the tune of stop that train :musical_note::steam_locomotive:
 
 Name that stame is a mutliple choice game where, you guessed it, you have to name that stain!
 
-Under construction but currently on hold while I finsih SoC Bootcamp. 
+Under construction but currently on hold while I finish SoC Bootcamp. 
 
 ### There is a a lot more to do
 - Fetch requests from front end need finishing.
