@@ -9,6 +9,6 @@ Under construction but currently on hold while I finish SoC Bootcamp.
 ### There is a a lot more to do
 - Fetch requests from front end need finishing.
 - Game element not built yet: currently just displays stains
-- Styling is lacking
+- Styling is lacking (read: none existent)
 - Currently using PostgreSQL need more stain entries, wanted to experiment with learning a new database too.
 - Create seperate repos for client and server.
